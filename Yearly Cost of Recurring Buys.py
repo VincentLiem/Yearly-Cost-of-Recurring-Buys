@@ -1,5 +1,6 @@
 item_name = input('Item name: ')
 item_cost = input('Item cost: ')
+item_cost = item_cost.replace('$','')
 item_restock_time = input('Restock every (number + days/weeks/months/years): ')
 item_restock_time_list = item_restock_time.split(" ")
 number_restock = item_restock_time_list[0]
