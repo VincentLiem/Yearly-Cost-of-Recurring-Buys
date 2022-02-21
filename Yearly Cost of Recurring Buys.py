@@ -1,4 +1,3 @@
-# Write your code here :-)
 item_name = input('Item name: ')
 item_cost = input('Item cost: ')
 item_restock_time = input('Restock every (number + days/weeks/months/years): ')
