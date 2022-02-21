@@ -7,3 +7,4 @@ with open("Yearly Cost.txt") as file:
         line_amount = float(line_amount)
         total = float(total) + line_amount
 print("Yearly Total: $" + str(total))
+file.close()
