@@ -15,7 +15,7 @@ if item_restock_time.find("year") != -1:
 yearly_cost = format(yearly_cost, '.2f')
 print(item_name + " : $" + str(yearly_cost) + " every year\n")
 save_file = input("Add to Yearly Cost text file? (Y/N) >> ")
-if save_file == "Y" or save_file == "y":
+if save_file.lower() == "y" or save_file.lower() == "yes" :
     with open('Yearly Cost.txt', "a") as save:
         save.write(item_name + " : $" + str(yearly_cost) + "\n")
     save.close()
