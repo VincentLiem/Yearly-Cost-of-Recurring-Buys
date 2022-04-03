@@ -1,3 +1,5 @@
+import csv
+
 def CheckYes(x):
     return x.lower() == 'y' or x.lower() == 'yes'
 
@@ -27,7 +29,12 @@ while caculate_more:
         with open('Yearly Cost.txt', 'a') as save:
             save.write(item_name + ' : $' + str(yearly_cost) + '\n')
         
+        save_file = input('Add to Yearly Cost csv file? (Y/N) >> ')
+    if CheckYes(save_file):
+        with open('Yearly Cost.csv', 'a') as save:
+            writer = csv.writer(save)
+            writer.writerow([item_name, yearly_cost])
+        
     caculate_more_question = input('Caculate another item? >> ')
     if not CheckYes(caculate_more_question):  
      caculate_more = False
-        
