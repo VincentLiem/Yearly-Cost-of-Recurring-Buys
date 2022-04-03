@@ -26,7 +26,6 @@ while caculate_more:
     if CheckYes(save_file):
         with open('Yearly Cost.txt', 'a') as save:
             save.write(item_name + ' : $' + str(yearly_cost) + '\n')
-        save.close()
         
     caculate_more_question = input('Caculate another item? >> ')
     if not CheckYes(caculate_more_question):  
