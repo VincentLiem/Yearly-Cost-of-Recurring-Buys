@@ -1,4 +1,5 @@
 import csv
+from pathlib import Path
 
 def CheckYes(x):
     return x.lower() == 'y' or x.lower() == 'yes'
@@ -31,10 +32,18 @@ while caculate_more:
         
     save_file = input('Add to Yearly Cost csv file? (Y/N) >> ')
     if CheckYes(save_file):
-        with open('Yearly Cost.csv', 'a',newline='') as save:
-            writer = csv.writer(save)
-            writer.writerow([item_name, yearly_cost])
+        csv_file = Path('Yearly Cost.csv')
+        if csv_file.exists():
+            with open('Yearly Cost.csv', 'a',newline='') as save:
+                writer = csv.writer(save)
+                writer.writerow([item_name, yearly_cost])
+        else:
+            with open('Yearly Cost.csv', 'a',newline='') as save:
+                writer = csv.writer(save)
+                writer.writerow(['Item Name', 'Yearly Cost'])                
+                writer.writerow([item_name, yearly_cost])
         
     caculate_more_question = input('Caculate another item? >> ')
     if not CheckYes(caculate_more_question):  
      caculate_more = False
+
