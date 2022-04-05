@@ -29,7 +29,7 @@ while caculate_more:
         with open('Yearly Cost.txt', 'a') as save:
             save.write(item_name + ' : $' + str(yearly_cost) + '\n')
         
-        save_file = input('Add to Yearly Cost csv file? (Y/N) >> ')
+    save_file = input('Add to Yearly Cost csv file? (Y/N) >> ')
     if CheckYes(save_file):
         with open('Yearly Cost.csv', 'a',newline='') as save:
             writer = csv.writer(save)
