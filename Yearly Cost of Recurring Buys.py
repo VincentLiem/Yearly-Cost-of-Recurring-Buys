@@ -31,7 +31,7 @@ while caculate_more:
         
         save_file = input('Add to Yearly Cost csv file? (Y/N) >> ')
     if CheckYes(save_file):
-        with open('Yearly Cost.csv', 'a') as save:
+        with open('Yearly Cost.csv', 'a',newline='') as save:
             writer = csv.writer(save)
             writer.writerow([item_name, yearly_cost])
         
