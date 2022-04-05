@@ -1,12 +1,15 @@
 import csv
 
 year_total = 0.00
-with open('Yearly Cost.csv') as file:
+with open('Yearly Cost.csv',) as file:
     read = csv.reader(file)
+    row_reading = 0
     for row in read:
-        row_amount = row[1]
-        year_total = float(year_total) + float(row_amount)
-        year_total = format(year_total, '.2f')
+        if row_reading != 0:
+            row_amount = row[1]
+            year_total = float(year_total) + float(row_amount)
+            year_total = format(year_total, '.2f')
+        row_reading += 1
 month_total = float(year_total) / 12
 month_total = format(month_total, '.2f')
 week_total = float(year_total) / 52
