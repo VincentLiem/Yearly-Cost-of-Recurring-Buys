@@ -15,4 +15,4 @@ print('Yearly Total: $' + str(year_total))
 print('Monthly Total: $' + str(month_total))
 print('Yearly Total: $' + str(week_total))
 print('Daily Total: $' + str(day_total))
-file.close()
+
