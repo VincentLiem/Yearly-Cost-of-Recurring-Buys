@@ -36,14 +36,13 @@ while caculate_more:
         if csv_file.exists():
             with open('Yearly Cost.csv', 'a',newline='') as save:
                 writer = csv.writer(save)
-                writer.writerow([item_name, yearly_cost])
+                writer.writerow([item_name, yearly_cost, item_cost, item_restock_time])
         else:
             with open('Yearly Cost.csv', 'a',newline='') as save:
                 writer = csv.writer(save)
-                writer.writerow(['Item Name', 'Yearly Cost'])                
-                writer.writerow([item_name, yearly_cost])
+                writer.writerow(['Item Name', 'Yearly Cost', 'Item Cost','Item Buy Frequency'])                
+                writer.writerow([item_name, yearly_cost, item_cost, item_restock_time])
         
     caculate_more_question = input('Caculate another item? >> ')
     if not CheckYes(caculate_more_question):  
      caculate_more = False
-
