@@ -43,7 +43,7 @@ while caculate_more:
                 writer.writerow(['Item Name', 'Yearly Cost', 'Item Cost','Item Buy Frequency'])                
                 writer.writerow([item_name, yearly_cost, item_cost, item_restock_time])
         
-    caculate_more_question = input('Caculate another item? >> ')
+    caculate_more_question = input('Caculate another item? (Y/N) >> ')
     print()
     if not CheckYes(caculate_more_question):  
      caculate_more = False
