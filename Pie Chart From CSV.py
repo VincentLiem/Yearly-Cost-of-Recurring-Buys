@@ -12,7 +12,7 @@ for item in yearly_cost:
 
 percentage_list = []
 for item in yearly_cost:
-    percentage = item/total_cost*100
+    percentage = item / total_cost * 100
     percentage = format(percentage, '.2f')
     percentage_list.append(percentage)
 
