@@ -16,6 +16,12 @@ for item in yearly_cost:
     percentage = format(percentage, '.2f')
     percentage_list.append(percentage)
 
-pyplot.pie(yearly_cost, labels = item_name + '  ' + percentage_list + '%')
+string_yearly_cost =[]
+for item in yearly_cost:
+    item = format(item, '.2f')
+    item = str(item)
+    string_yearly_cost.append(item)
+
+pyplot.pie(yearly_cost, labels = item_name + ': $' + string_yearly_cost + '\n' + percentage_list + '%')
 pyplot.title("Breakdown of Costs")
 pyplot.show()
