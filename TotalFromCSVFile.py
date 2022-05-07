@@ -26,4 +26,4 @@ if __name__ == "__main__":
                 row_reading += 1
         print_from_year_total(year_total)
     except FileNotFoundError:
-        print("Yearly Cost.txt not created yet")
+        print("Yearly Cost.csv not created yet")
