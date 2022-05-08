@@ -4,7 +4,16 @@ from pathlib import Path
 def CheckYes(x):
     return x.lower() == 'y' or x.lower() == 'yes'
 
-def caculate_yearly_costs():
+def AskCostInputs():
+    item_name = input('Item name: ')
+    item_cost = input('Item cost: ')
+    item_cost = item_cost.replace('$','')
+    item_restock_time = input('Restock every (number + days/weeks/months/years): ')
+    item_restock_time_list = item_restock_time.split(' ')
+    number_restock = item_restock_time_list[0]
+    return item_name, item_cost, item_restock_time, number_restock
+
+def CaculateYearlyCosts():
     if item_restock_time.find('day') != -1:
         yearly_cost = float(item_cost) / float(number_restock) * 365
     if item_restock_time.find('week') != -1:
@@ -19,15 +28,9 @@ def caculate_yearly_costs():
 if __name__ == '__main__':
     caculate_more = True
     while caculate_more:
-        item_name = input('Item name: ')
-        item_cost = input('Item cost: ')
-        item_cost = item_cost.replace('$','')
-        item_restock_time = input('Restock every (number + days/weeks/months/years): ')
-        item_restock_time_list = item_restock_time.split(' ')
-        number_restock = item_restock_time_list[0]
-        yearly_cost = caculate_yearly_costs()
+        item_name, item_cost, item_restock_time, number_restock = AskCostInputs()
+        yearly_cost = CaculateYearlyCosts()
         print(item_name + ' : $' + str(yearly_cost) + ' every year\n')
-
         save_file = input('Add to Yearly Cost text file? (Y/N) >> ')
         if CheckYes(save_file):
             with open('Yearly Cost.txt', 'a') as save:
