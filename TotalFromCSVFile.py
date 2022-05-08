@@ -1,6 +1,6 @@
 import csv
 
-def CaculateAndPrintFromYearTotals(year_total):
+def caculate_and_print_from_year_total(year_total):
     month_total = float(year_total) / 12
     month_total = format(month_total, '.2f')
     week_total = float(year_total) / 52
@@ -24,6 +24,6 @@ if __name__ == "__main__":
                     year_total = float(year_total) + float(row_amount)
                     year_total = format(year_total, '.2f')
                 row_reading += 1
-        CaculateAndPrintFromYearTotals(year_total)
+        caculate_and_print_from_year_total(year_total)
     except FileNotFoundError:
         print("Yearly Cost.csv not created yet")
