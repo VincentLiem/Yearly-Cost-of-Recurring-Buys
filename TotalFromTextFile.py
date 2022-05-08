@@ -7,6 +7,6 @@ try:
             line_amount = line_list[1].replace('\n', '')
             year_total = float(year_total) + float(line_amount)
             year_total = format(year_total, '.2f')
-    CaculateAndPrintFromYearTotals(year_total)
+    caculate_and_print_from_year_total(year_total)
 except FileNotFoundError:
     print("Yearly Cost.txt not created yet")
