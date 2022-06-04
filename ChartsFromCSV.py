@@ -26,6 +26,12 @@ try:
     pyplot.pie(yearly_cost, labels = item_name + ': $' + string_yearly_cost + '\n' + percentage_list + '%')
     pyplot.title("Breakdown of Costs")
     pyplot.show()
+    
+    pyplot.bar(item_name, yearly_cost)
+    pyplot.title("Breakdown of Costs")
+    pyplot.xlabel = ('Cost Name')
+    pyplot.ylabel = ('Yearly Cost')
+    pyplot.show()
 
 except FileNotFoundError:
     print("Yearly Cost.csv not created yet")
