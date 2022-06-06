@@ -1,9 +1,7 @@
 import pandas
 import matplotlib.pyplot as pyplot
 
-try:
-    csv_file = pandas.read_csv ('Yearly Cost.csv')
-
+def pie_chart(csv_file):
     item_name = csv_file['Item Name']
     yearly_cost = csv_file['Yearly Cost']
 
@@ -26,12 +24,21 @@ try:
     pyplot.pie(yearly_cost, labels = item_name + ': $' + string_yearly_cost + '\n' + percentage_list + '%')
     pyplot.title("Breakdown of Costs")
     pyplot.show()
-    
+
+def bar_graph(csv_file):
+    item_name = csv_file['Item Name']
+    yearly_cost = csv_file['Yearly Cost']
+
     pyplot.bar(item_name, yearly_cost)
     pyplot.title("Breakdown of Costs")
     pyplot.xlabel = ('Cost Name')
     pyplot.ylabel = ('Yearly Cost')
     pyplot.show()
 
-except FileNotFoundError:
-    print("Yearly Cost.csv not created yet")
+if __name__ == '__main__':
+    try:
+        csv_file = pandas.read_csv ('Yearly Cost.csv')
+        pie_chart(csv_file)
+        bar_graph(csv_file)
+    except FileNotFoundError:
+        print("Yearly Cost.csv not created yet")
