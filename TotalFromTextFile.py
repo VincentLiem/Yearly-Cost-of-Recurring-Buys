@@ -1,7 +1,8 @@
 from TotalFromCSVFile import *
 try:
     year_total = 0.00
-    with open('Yearly Cost.txt') as file:
+    savefile = os.path.join("Output", "Yearly Cost.txt")
+    with open(savefile) as file:
         for line in file:
             line_list = line.split('$')
             line_amount = line_list[1].replace('\n', '')

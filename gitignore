@@ -1,2 +1,5 @@
 *.csv
 *.txt
+venv/
+Output/
+__pycache__/

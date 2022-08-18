@@ -1,4 +1,5 @@
 import csv
+import os
 
 def caculate_and_print_from_year_total(year_total):
     month_total = float(year_total) / 12
@@ -15,7 +16,8 @@ def caculate_and_print_from_year_total(year_total):
 if __name__ == "__main__":
     try:
         year_total = 0.00
-        with open('Yearly Cost.csv',) as file:
+        savefile = os.path.join("Output", "Yearly Cost.csv")
+        with open(savefile) as file:
             read = csv.reader(file)
             row_reading = 0
             for row in read:

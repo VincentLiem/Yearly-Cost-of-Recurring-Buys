@@ -1,5 +1,6 @@
 import csv
 from pathlib import Path
+import os
 
 def check_yes(x):
     return x.lower() == 'y' or x.lower() == 'yes'
@@ -25,6 +26,10 @@ def caculate_yearly_costs():
     yearly_cost = format(yearly_cost, '.2f')
     return yearly_cost
 
+def make_output_folder():
+    if not os.path.exists(os.path.join("Output")):
+        os.mkdir("Output")
+
 if __name__ == '__main__':
     caculate_more = True
     while caculate_more:
@@ -33,18 +38,22 @@ if __name__ == '__main__':
         print(item_name + ' : $' + str(yearly_cost) + ' every year\n')
         save_file = input('Add to Yearly Cost text file? (Y/N) >> ')
         if check_yes(save_file):
-            with open('Yearly Cost.txt', 'a') as save:
+            make_output_folder()
+            savefile = os.path.join("Output", "Yearly Cost.txt")
+            with open(savefile, 'a+') as save:
                 save.write(item_name + ' : $' + str(yearly_cost) + '\n')
             
         save_file = input('Add to Yearly Cost csv file? (Y/N) >> ')
         if check_yes(save_file):
-            csv_file = Path('Yearly Cost.csv')
+            make_output_folder()
+            savefile = os.path.join("Output", "Yearly Cost.csv")
+            csv_file = Path(savefile)
             if csv_file.exists():
-                with open('Yearly Cost.csv', 'a',newline='') as save:
+                with open(savefile, 'a',newline='') as save:
                     writer = csv.writer(save)
                     writer.writerow([item_name, yearly_cost, item_cost, item_restock_time])
             else:
-                with open('Yearly Cost.csv', 'a',newline='') as save:
+                with open(savefile, 'w',newline='') as save:
                     writer = csv.writer(save)
                     writer.writerow(['Item Name', 'Yearly Cost', 'Item Cost','Item Buy Frequency'])                
                     writer.writerow([item_name, yearly_cost, item_cost, item_restock_time])

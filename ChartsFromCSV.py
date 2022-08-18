@@ -1,5 +1,6 @@
 import pandas
 import matplotlib.pyplot as pyplot
+import os
 
 def pie_chart(csv_file):
     item_name = csv_file['Item Name']
@@ -37,7 +38,8 @@ def bar_graph(csv_file):
 
 if __name__ == '__main__':
     try:
-        csv_file = pandas.read_csv ('Yearly Cost.csv')
+        savefile = os.path.join("Output", "Yearly Cost.csv")
+        csv_file = pandas.read_csv (savefile)
         pie_chart(csv_file)
         bar_graph(csv_file)
     except FileNotFoundError:
